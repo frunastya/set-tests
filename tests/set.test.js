@@ -1,12 +1,12 @@
 import { strict as assert } from 'node:assert'
 import set from '../src/set.js'
 
-const obj = {}
+const obj1 = {}
+set(obj1, 'key', 'value')
+assert.equal(obj1.key, 'value')
 
-set(obj, 'key1', 'value1')
-assert.equal(obj.key1, 'value1')
-
-set(obj, 'key1', 'next value')
-assert.notEqual(obj.key1, 'next value')
+const obj2 = { key: 'value' }
+set(obj2, 'key', 'next value')
+assert.notEqual(obj2.key, 'next value')
 
 console.log('Все тесты пройдены!')
